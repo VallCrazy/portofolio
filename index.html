@@ -556,7 +556,19 @@ img{
   >
 
 </audio>
+<script>
+const music = document.getElementById("music");
 
+function playMusic() {
+    music.play().catch(error => {
+        console.log("Gagal memutar:", error);
+    });
+}
+
+function pauseMusic() {
+    music.pause();
+}
+</script>
 
 
 <!-- =========================================
