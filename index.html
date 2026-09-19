@@ -545,15 +545,10 @@ img{
 ========================================== -->
 
 <audio
-  id="music"
-  loop
-  preload="auto"
->
+  id="music"looppreload="auto">
 
   <source
-    src="./lagu.mp4"
-    type="audio/mp4"
-  >
+    src="./lagu.mp4"type="audio/mp4">
 
 </audio>
 <script>
@@ -640,133 +635,45 @@ function pauseMusic() {
 ========================================== -->
 
 <script>
-
-const music =
-  document.getElementById("music");
-
-const playBtn =
-  document.getElementById("playBtn");
-
-const musicStatus =
-  document.getElementById("musicStatus");
-
-
-
-/* Volume awal */
+const music = document.getElementById("music");
+const playBtn = document.getElementById("playBtn");
+const musicStatus = document.getElementById("musicStatus");
 
 music.volume = 0.7;
 
-
-
-/* Update tombol */
-
-function updateMusicPlayer(){
-
-  if(music.paused){
-
-    playBtn.textContent = "▶";
-
-    musicStatus.textContent =
-      "Musik dijeda";
-
-  }else{
-
-    playBtn.textContent = "⏸";
-
-    musicStatus.textContent =
-      "Musik sedang diputar • Loop aktif";
-
-  }
-
+function updateMusicPlayer() {
+    if (music.paused) {
+        playBtn.textContent = "▶";
+        musicStatus.textContent = "Musik dijeda";
+    } else {
+        playBtn.textContent = "⏸";
+        musicStatus.textContent = "Musik sedang diputar • Loop aktif";
+    }
 }
 
-
-
-/* Play / Pause */
-
-function toggleMusic(){
-
-  if(music.paused){
-
-    music.play()
-
-      .then(() => {
-
+function toggleMusic() {
+    if (music.paused) {
+        music.play()
+            .then(() => {
+                updateMusicPlayer();
+            })
+            .catch((error) => {
+                console.log("Gagal memutar musik:", error);
+                musicStatus.textContent = "Musik gagal diputar";
+            });
+    } else {
+        music.pause();
         updateMusicPlayer();
-
-      })
-
-      .catch(() => {
-
-        musicStatus.textContent =
-          "Klik tombol ▶ untuk memutar musik";
-
-      });
-
-  }
-
-  else{
-
-    music.pause();
-
-    updateMusicPlayer();
-
-  }
-
+    }
 }
 
-
-
-/* Volume */
-
-function changeVolume(value){
-
-  music.volume = value;
-
+function changeVolume(value) {
+    music.volume = value;
 }
 
+music.addEventListener("play", updateMusicPlayer);
+music.addEventListener("pause", updateMusicPlayer);
+music.addEventListener("ended", updateMusicPlayer);
 
-
-/* Autoplay */
-
-window.addEventListener(
-  "load",
-  () => {
-
-    music.play()
-
-      .then(() => {
-
-        updateMusicPlayer();
-
-      })
-
-      .catch(() => {
-
-        musicStatus.textContent =
-          "Autoplay diblokir — klik ▶";
-
-      });
-
-  }
-);
-
-
-
-/* Event */
-
-music.addEventListener(
-  "play",
-  updateMusicPlayer
-);
-
-music.addEventListener(
-  "pause",
-  updateMusicPlayer
-);
-
+updateMusicPlayer();
 </script>
-
-
-</body>
-</html>
