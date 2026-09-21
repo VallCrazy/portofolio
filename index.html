@@ -1073,6 +1073,10 @@ footer{
      KONTAK
 ===================================================== -->
 
+<!-- =====================================================
+     KONTAK
+===================================================== -->
+
 <section
   id="contact"
   class="page">
@@ -1125,6 +1129,113 @@ footer{
   </div>
 
 
+  <!-- FORM PESAN -->
+
+  <div class="card">
+
+    <h2>
+      💬 Kirim Pesan
+    </h2>
+
+    <p>
+      Ada pesan atau pertanyaan? Kirim pesan melalui form
+      di bawah ini.
+    </p>
+
+
+    <form
+      class="contact-form"
+      action="https://formsubmit.co/EMAILKAMU"
+      method="POST">
+
+      <!-- Pengaturan FormSubmit -->
+
+      <input
+        type="hidden"
+        name="_subject"
+        value="Pesan Baru dari Website Portofolio Noval">
+
+      <input
+        type="hidden"
+        name="_template"
+        value="table">
+
+      <input
+        type="hidden"
+        name="_captcha"
+        value="false">
+
+
+      <!-- NAMA -->
+
+      <div class="form-group">
+
+        <label for="nama">
+          Nama
+        </label>
+
+        <input
+          type="text"
+          id="nama"
+          name="Nama"
+          placeholder="Masukkan nama kamu"
+          required>
+
+      </div>
+
+
+      <!-- EMAIL -->
+
+      <div class="form-group">
+
+        <label for="email">
+          Email
+        </label>
+
+        <input
+          type="email"
+          id="email"
+          name="Email"
+          placeholder="contoh@email.com"
+          required>
+
+      </div>
+
+
+      <!-- PESAN -->
+
+      <div class="form-group">
+
+        <label for="pesan">
+          Pesan
+        </label>
+
+        <textarea
+          id="pesan"
+          name="Pesan"
+          placeholder="Tulis pesan kamu di sini..."
+          required></textarea>
+
+      </div>
+
+
+      <!-- TOMBOL -->
+
+      <button
+        type="submit"
+        class="btn send-btn">
+
+        📤 Kirim Pesan
+
+      </button>
+
+    </form>
+
+  </div>
+
+
+  <!-- UCAPAN -->
+
   <div class="card">
 
     <h2>
@@ -1148,7 +1259,6 @@ footer{
   </div>
 
 </section>
-
 
 <!-- =====================================================
      FOOTER
